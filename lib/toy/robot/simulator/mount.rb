@@ -14,7 +14,7 @@ module Toy
           fail InvalidCommand.new unless Commands.public_method_defined?(operation)
           public_send "Toy::Robot::Simulator.#{operation}", *operation_details
         rescue ArgumentError
-          fail InvalidCommand.new
+          fail InvalidCommand
         end
 
         private
