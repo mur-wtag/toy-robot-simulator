@@ -29,5 +29,38 @@ RSpec.describe Toy::Robot::Simulator::Mount do
         it { is_expected.to eq [2, 2]}
       end
     end
+
+    context '#left' do
+      let(:place_command) { 'PLACE 1,2,EAST' }
+      let(:command) { 'LEFT' }
+
+      before { instance.start(place_command) }
+      context 'valid move' do
+        it { expect(subject.faced_to).to eq 'NORTH'}
+      end
+    end
+
+    context '#right' do
+      let(:place_command) { 'PLACE 1,2,EAST' }
+      let(:command) { 'RIGHT' }
+
+      before { instance.start(place_command) }
+      context 'valid move' do
+        it { expect(subject.faced_to).to eq 'SOUTH'}
+      end
+    end
+
+    context '#report' do
+      let(:place_command) { 'PLACE 1,2,EAST' }
+      let(:turn_command) { 'RIGHT' }
+      let(:command) { 'REPORT' }
+
+      before do
+        instance.start(place_command)
+        instance.start(turn_command)
+      end
+
+      it { expect(instance.report).to eq '1,2,SOUTH' }
+    end
   end
 end

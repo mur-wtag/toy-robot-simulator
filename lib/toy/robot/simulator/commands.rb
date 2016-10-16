@@ -27,7 +27,7 @@ module Toy
 
         def report
           validate_direction(@face)
-          @output.puts "#{@x},#{@y},#{@face.faced_to}"
+          "#{@x},#{@y},#{@face.faced_to}"
         end
 
         private
