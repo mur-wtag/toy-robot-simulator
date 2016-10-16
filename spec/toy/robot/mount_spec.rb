@@ -65,11 +65,21 @@ RSpec.describe Toy::Robot::Simulator::Mount do
   end
 
   describe '#start_reading_file' do
-    subject { instance.start_reading_file(file) }
+    subject { instance.start_reading_file(file_path) }
 
     context 'sample #a' do
-      let(:file) { File.new('./fixtures/input_sample_a.txt') }
-      xit { expect(subject).to eq 'asdads' }
+      let(:file_path) { './fixtures/input_sample_a.txt' }
+      it { expect { subject }.to output("0,1,NORTH\n").to_stdout }
+    end
+
+    context 'sample #b' do
+      let(:file_path) { './fixtures/input_sample_b.txt' }
+      it { expect { subject }.to output("0,0,WEST\n").to_stdout }
+    end
+
+    context 'sample #c' do
+      let(:file_path) { './fixtures/input_sample_c.txt' }
+      it { expect { subject }.to output("3,3,NORTH\n").to_stdout }
     end
   end
 end

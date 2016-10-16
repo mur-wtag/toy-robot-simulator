@@ -21,8 +21,8 @@ module Toy
           fail Simulator::Errors::InvalidCommand, 'Something went wrong!'
         end
 
-        def start_reading_file(input)
-          input.each_line do |line|
+        def start_reading_file(input_file_path)
+          File.new(input_file_path).each_line do |line|
             begin
               start(line)
             rescue
