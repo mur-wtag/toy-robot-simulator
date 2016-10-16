@@ -11,13 +11,12 @@ module Toy
           west: [2, 0]
         }
         def initialize(x, y, face)
-          @x = x
-          @y = y
+          @x, @y = x, y
           @face = face.downcase.to_sym
         end
 
         def faced_to
-          @face
+          @face.to_s.upcase
         end
 
         def step_forward(x, y)

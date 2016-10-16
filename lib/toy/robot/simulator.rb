@@ -1,6 +1,7 @@
 require 'toy/robot/simulator/version'
 require 'toy/robot/simulator/mount'
 require 'toy/robot/simulator/commands'
+require 'toy/robot/simulator/direction'
 require 'toy/robot/simulator/errors'
 
 module Toy

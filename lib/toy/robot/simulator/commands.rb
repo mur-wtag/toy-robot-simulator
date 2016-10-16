@@ -4,8 +4,7 @@ module Toy
       module Commands
         def place(x, y, face)
           valid_position?(x, y, face)
-          @x = x
-          @y = y
+          @x, @y = x, y
           @face = Direction.new(x, y, face)
         end
 
