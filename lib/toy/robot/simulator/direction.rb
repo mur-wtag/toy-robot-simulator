@@ -10,6 +10,12 @@ module Toy
           south: [1, 3],
           west: [2, 0]
         }
+        STEP_MAPPER = {
+          north: [0, 1],
+          east: [1, 0],
+          south: [0, -1],
+          west: [-1, 0]
+        }
         def initialize(x, y, face)
           @x, @y = x, y
           @face = face.downcase.to_sym
@@ -20,7 +26,8 @@ module Toy
         end
 
         def step_forward(x, y)
-          [@x + x, @y + y]
+          step_count = STEP_MAPPER[@face.to_sym]
+          [x + step_count[0], y + step_count[1]]
         end
 
         def turn_left

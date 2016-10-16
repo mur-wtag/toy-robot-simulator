@@ -3,8 +3,12 @@ module Toy
     module Simulator
       class Errors
         class InvalidCommand < Exception
+          def initialize(error)
+            @error = error
+          end
+
           def to_s
-            # Have
+            "InvalidCommad: #{@error.to_s}"
           end
         end
       end
