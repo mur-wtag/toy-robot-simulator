@@ -21,6 +21,16 @@ module Toy
           fail Simulator::Errors::InvalidCommand, 'Something went wrong!'
         end
 
+        def start_reading_file(input)
+          input.each_line do |line|
+            begin
+              start(line)
+            rescue
+              fail Simulator::Errors::InvalidCommand, 'File contains invalid commands!'
+            end
+          end
+        end
+
         private
 
         def valid_position?(x, y, face)
