@@ -16,3 +16,33 @@ And then execute:
 Or install it yourself as:
 
     $ gem install toy-robot-simulator
+
+## Usages
+
+To operate with single command, use:
+
+```ruby
+command = 'PLACE 0,0,NORTH'
+simulator = Toy::Robot::Simulator::Mount.new
+simulator.start(command)
+simulator.report
+# => 0,0,NORTH
+```
+
+Also able to provide command stream using file_path(i/o):
+```ruby
+file_path = './fixtures/input_sample_c.txt'
+simulator = Toy::Robot::Simulator::Mount.new
+simulator.start_reading_file(command)
+# => 3,3,NORTH
+```
+
+## Test
+Inside `/fixtures` directory there are all three sample files, and these file are being used from specs.
+
+To run spec (from root directory of the project):
+```shell
+bundle exec rspec
+```
+
+Thanks!
