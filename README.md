@@ -33,7 +33,7 @@ Also able to provide command stream using file_path(i/o):
 ```ruby
 file_path = './fixtures/input_sample_c.txt'
 simulator = Toy::Robot::Simulator::Mount.new
-simulator.start_reading_file(command)
+simulator.start_reading_file(file_path)
 # => 3,3,NORTH
 ```
 
